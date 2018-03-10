@@ -6,11 +6,18 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-
+    <?php session_start(); ?>
     <ul>
-        <li><a href="index.html" class="active">Information Systems</a></li>
+        <li><a href="index.php" class="active">Information Systems</a></li>
+        <li><a href="pages/register.php">Register</a></li>
+        <?php if (isset($_SESSION['login'])) { ?>
+            <li><a href="pages/logout.php">Sign out</a></li>
+            <li><a href="pages/admin.php">Admin</a></li>
+        <?php } else { ?>
+            <li><a href="pages/login.php">Login</a></li>
+        <?php } ?>
+        <li><a href="pages/lectures.php">Lectures</a></li>
     </ul>
 
     <h1>Umm Al Qura University - Information Systems</h1>
